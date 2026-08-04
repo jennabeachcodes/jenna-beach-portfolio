@@ -1,0 +1,60 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/typography' as *;
+
+.bar {
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  padding: 10px $space-md;
+  display: flex;
+  gap: $space-md;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  transition: background 0.3s ease;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  overflow: hidden;
+  padding: 2px;
+  gap: 2px;
+}
+
+.btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  padding: 6px 14px;
+  cursor: pointer;
+  border-radius: 999px;
+  transition: background 0.15s, color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+
+  &:hover {
+    background: var(--color-border);
+    color: var(--color-text);
+  }
+}
+
+.active {
+  background: $bauhaus-blue;
+  color: #fff;
+
+  &:hover {
+    background: #1535a8;
+    color: #fff;
+  }
+}
+
+.sizeSmall { font-size: 11px; }
+.sizeMedium { font-size: 13px; }
+.sizeLarge { font-size: 16px; }

@@ -1,0 +1,114 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/typography' as *;
+
+.hero {
+  position: relative;
+  background: var(--color-bg);
+  min-height: 500px;
+  display: flex;
+  align-items: flex-end;
+  padding: $space-md;
+  overflow: hidden;
+  margin-bottom: 0;
+  transition: background 0.3s ease;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+.eyebrow {
+  @extend %label;
+  color: var(--color-text-muted);
+  display: block;
+  margin-bottom: $space-md;
+}
+
+.name {
+  @extend %display;
+  font-size: clamp(48px, 10vw, 120px);
+  line-height: 0.9;
+  color: var(--color-text);
+  margin-bottom: $space-md;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.subtitleRow {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-sm;
+}
+
+.rule {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: $bauhaus-yellow;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.subtitleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.subtitle {
+  @extend %label;
+  color: var(--color-text-muted);
+}
+
+.diagonalPanel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background: $bauhaus-blue;
+  clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.selectedWork {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  align-items: flex-end;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.selectedLabel {
+  @extend %label;
+  color: $newsprint;
+  margin-bottom: $space-xs;
+}
+
+.workItem {
+  background: $press-black;
+  padding: $space-xs $space-sm;
+  width: 180px;
+  text-decoration: none;
+  display: block;
+
+  &:hover {
+    background: $propaganda-red;
+  }
+
+  span {
+    @extend %label;
+    color: $newsprint;
+  }
+}

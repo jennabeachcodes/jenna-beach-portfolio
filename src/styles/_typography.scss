@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500&family=Literata:wght@400;700&display=swap');
+
+%display {
+  font-family: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+%label {
+  font-family: inherit;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+}
+
+%body {
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+}

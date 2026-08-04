@@ -1,0 +1,112 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/typography' as *;
+
+.section {
+  background: var(--color-bg);
+  padding: $space-lg $space-md;
+  transition: background 0.3s ease;
+}
+
+.heading {
+  @extend %display;
+  font-size: clamp(40px, 6vw, 72px);
+  color: var(--color-text);
+  margin-bottom: $space-md;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-md;
+  padding: 0 $space-md $space-md $space-md;
+  background: var(--color-bg);
+  transition: background 0.3s ease;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    padding: $space-md $space-sm;
+  }
+}
+
+.card {
+  width: 100%;
+  padding: $space-md;
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+  cursor: default;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 6px 6px 0px $bauhaus-yellow;
+  }
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: $space-sm;
+}
+
+.marker {
+  display: block;
+  width: 32px;
+  height: 32px;
+
+  &.circle-filled { background: $propaganda-red; border-radius: 50%; }
+  &.square-filled { background: $bauhaus-blue; }
+  &.square-outline { background: $bauhaus-yellow; }
+}
+
+.number {
+  @extend %label;
+  color: var(--color-text-muted);
+}
+
+.title {
+  @extend %display;
+  font-size: 48px;
+  color: var(--color-text);
+  margin-bottom: $space-xs;
+}
+
+.stack {
+  @extend %label;
+  color: var(--color-text-muted);
+  margin-bottom: $space-xs;
+}
+
+.rule {
+  border: none;
+  border-top: 1px solid $propaganda-red;
+  margin-bottom: $space-sm;
+}
+
+.description {
+  @extend %body;
+  color: var(--color-text-muted);
+}
+
+.links {
+  display: flex;
+  gap: $space-sm;
+  margin-top: $space-sm;
+}
+
+.linkBtn {
+  @extend %label;
+  font-size: 10px;
+  color: var(--color-bg);
+  background: var(--color-text);
+  padding: 6px 14px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: $propaganda-red;
+    color: $newsprint;
+  }
+}

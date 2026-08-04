@@ -1,0 +1,48 @@
+@import '@fontsource/opendyslexic';
+
+.shell {
+  font-family: 'Bebas Neue', sans-serif;
+
+  &[data-font='sans'] {
+    font-family: 'Inter', sans-serif;
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Bebas Neue', sans-serif;
+    }
+  }
+
+  &[data-font='serif'] {
+    font-family: 'Literata', serif;
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Literata', serif;
+    }
+  }
+
+  &[data-font='dyslexic'] {
+    font-family: 'OpenDyslexic', sans-serif;
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'OpenDyslexic', sans-serif;
+    }
+  }
+
+  &[data-size='small'] {
+    font-size: 13px;
+    
+    //h1, h2, h3 { font-size: 0.8em; }
+    p, li, a, span, label, input, textarea, select, button { font-size: 13px; }
+  }
+
+  &[data-size='medium'] {
+    font-size: 16px;
+    p, li, a, span, label, input, textarea, select, button { font-size: 14px; }
+  }
+
+  &[data-size='large'] {
+    font-size: 20px;
+
+    //h1, h2, h3 { font-size: 1.2em; }
+    p, li, a, span, label, input, textarea, select, button { font-size: 18px; }
+  }
+}

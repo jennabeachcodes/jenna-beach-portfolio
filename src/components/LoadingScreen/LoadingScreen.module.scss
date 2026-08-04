@@ -1,0 +1,52 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/typography' as *;
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $void;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-md;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+
+  @media (prefers-reduced-motion: reduce) {
+    display: none;
+  }
+}
+
+.hiding {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.shape {
+  width: 80px;
+  height: 80px;
+  background: $propaganda-red;
+  animation: morphShape 1.8s ease forwards;
+}
+
+.label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $steel;
+}
+
+@keyframes morphShape {
+  0%   { background: $propaganda-red; border-radius: 0; transform: rotate(0deg); }
+  30%  { background: $propaganda-red; border-radius: 0; }
+  40%  { background: $bauhaus-blue; border-radius: 50%; transform: rotate(180deg); }
+  70%  { background: $bauhaus-blue; border-radius: 50%; }
+  80%  { background: $bauhaus-yellow; border-radius: 0; transform: rotate(360deg) skewY(-15deg) scaleX(0.8); }
+  100% { background: $bauhaus-yellow; border-radius: 0; transform: rotate(360deg) skewY(-15deg) scaleX(0.8); }
+}

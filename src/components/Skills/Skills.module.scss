@@ -1,0 +1,115 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/typography' as *;
+
+.section {
+  background: var(--color-bg);
+  padding: 0 $space-md $space-md $space-md;
+  transition: background 0.3s ease;
+}
+
+.heading {
+  @extend %display;
+  font-size: clamp(40px, 6vw, 72px);
+  color: var(--color-text);
+  margin-bottom: $space-md;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-md;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: var(--color-surface);
+  padding: $space-md;
+  position: relative;
+  border: 1px solid var(--color-border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 6px 6px 0px $bauhaus-yellow;
+  }
+}
+
+.span {
+  grid-column: span 2;
+
+  @media (max-width: 768px) {
+    grid-column: span 1;
+  }
+}
+
+.number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 72px;
+  color: var(--color-border);
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  line-height: 1;
+}
+
+.markerRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: $space-sm;
+}
+
+.marker {
+  display: block;
+  width: 14px;
+  height: 14px;
+
+  &.square { background: $propaganda-red; }
+  &.circle { background: $bauhaus-blue; border-radius: 50%; }
+}
+
+.title {
+  @extend %display;
+  font-size: 28px;
+  color: var(--color-text);
+  margin-bottom: $space-sm;
+}
+
+.bullets {
+  list-style: none;
+  margin-bottom: $space-sm;
+
+  li {
+    @extend %body;
+    color: var(--color-text-muted);
+    padding: $space-xs 0;
+    border-bottom: 1px solid var(--color-border);
+    line-height: 1.5;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &::before {
+      content: '— ';
+      color: $propaganda-red;
+    }
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  @extend %label;
+  font-size: 10px;
+  background: var(--color-text);
+  color: var(--color-bg);
+  padding: 4px 10px;
+}

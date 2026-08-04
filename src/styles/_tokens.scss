@@ -1,0 +1,39 @@
+:root {
+  --color-bg: #f0ebe0;
+  --color-surface: #e8e3d8;
+  --color-text: #1a1a1a;
+  --color-text-muted: #888;
+  --color-border: rgba(0, 0, 0, 0.1);
+
+  --red: #E63329;
+  --blue: #1B3FBF;
+  --yellow: #F5C500;
+  --black: #1a1a1a;
+  --newsprint: #f0ebe0;
+  --void: #0a0f1a;
+  --steel: #888;
+}
+
+[data-theme="dark"] {
+  --color-bg: #0a0f1a;
+  --color-surface: #111827;
+  --color-text: #e8eaf0;
+  --color-text-muted: #8892b0;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-field: #1e2638;
+}
+
+$propaganda-red: #E63329;
+$bauhaus-blue: #1B3FBF;
+$bauhaus-yellow: #F5C500;
+$press-black: #1a1a1a;
+$newsprint: #f0ebe0;
+$void: #0e0e0e;
+$steel: #888;
+$grid-gap: 2px;
+$space-xs: 8px;
+$space-sm: 16px;
+$space-md: 32px;
+$space-lg: 64px;
+$space-xl: 120px;
+$max-width: 1440px;

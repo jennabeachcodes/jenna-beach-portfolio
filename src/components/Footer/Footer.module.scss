@@ -1,0 +1,129 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/typography' as *;
+
+.footer {
+  background: var(--color-surface);
+  transition: background 0.3s ease;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: $space-lg;
+  padding: $space-lg $space-md;
+  border-bottom: 1px solid var(--color-border);
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: $space-md;
+  }
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  @extend %display;
+  font-size: 56px;
+  color: var(--color-text);
+  line-height: 0.9;
+  margin: 0;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}
+
+.colHeading {
+  @extend %label;
+  font-size: 11px;
+  color: var(--color-text);
+  letter-spacing: 0.2em;
+  margin-bottom: 4px;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}
+
+.listItem {
+  @extend %body;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.listLink {
+  @extend %body;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.15s;
+
+  &:hover {
+    color: var(--color-text);
+  }
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $space-sm $space-md;
+  flex-wrap: wrap;
+  gap: $space-sm;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.copy {
+  @extend %body;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.built {
+  @extend %label;
+  font-size: 10px;
+  color: var(--color-text-muted);
+  letter-spacing: 0.15em;
+}
+
+.bottomLinks {
+  display: flex;
+  gap: $space-md;
+}
+
+.bottomLink {
+  @extend %label;
+  font-size: 11px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+
+  &:hover {
+    color: var(--color-text);
+  }
+}
+
+.quoteRow {
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  border-left: 4px solid $propaganda-red;
+  padding: $space-md;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  background: var(--color-surface);
+  transition: background 0.3s ease;
+}

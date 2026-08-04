@@ -1,0 +1,12 @@
+@use 'reset';
+@use 'tokens' as *;
+@use 'typography';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: $void;  
+}
+
