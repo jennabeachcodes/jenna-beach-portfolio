@@ -5,10 +5,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: $grid-gap;  
-  transition: background 0.3s ease;
-  padding-top: 20px;
-  padding-left: 20px; 
-  background-color: $newsprint;
+  transition: background 0.3s ease;  
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
