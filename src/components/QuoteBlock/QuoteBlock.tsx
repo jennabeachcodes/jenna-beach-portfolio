@@ -2,31 +2,58 @@ import React, { useState, useEffect, useCallback } from 'react';
 import styles from './QuoteBlock.module.scss';
 import { quotes } from '../../data/quotes';
 
-
 const INTERVAL = 25;
 
+interface Quote {
+  text: string;
+  author: string;
+  source?: string;
+}
+
+function getLocalQuote(): Quote {
+  return quotes[Math.floor(Math.random() * quotes.length)];
+}
+
 export default function QuoteBlock() {
-  const [index, setIndex] = useState(0);
+  const [quote, setQuote] = useState<Quote>(getLocalQuote());
   const [paused, setPaused] = useState(false);
   const [seconds, setSeconds] = useState(INTERVAL);
+  const [loading, setLoading] = useState(false);
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const nextQuote = useCallback(() => {
-    setIndex(i => (i + 1) % quotes.length);
-    setSeconds(INTERVAL);
+  const fetchQuote = useCallback(async () => {
+    setLoading(true);
+    try {
+      const response = await fetch('/api/quote');
+      if (!response.ok) throw new Error('API failed');
+      const data = await response.json();
+      setQuote(data);
+    } catch {
+      setQuote(getLocalQuote());
+    } finally {
+      setLoading(false);
+      setSeconds(INTERVAL);
+    }
   }, []);
+
+  useEffect(() => {
+    fetchQuote();
+  }, [fetchQuote]);
 
   useEffect(() => {
     if (paused || prefersReducedMotion) return;
     const tick = setInterval(() => {
       setSeconds(s => {
-        if (s <= 1) { nextQuote(); return INTERVAL; }
+        if (s <= 1) {
+          fetchQuote();
+          return INTERVAL;
+        }
         return s - 1;
       });
     }, 1000);
     return () => clearInterval(tick);
-  }, [paused, prefersReducedMotion, nextQuote]);
+  }, [paused, prefersReducedMotion, fetchQuote]);
 
   useEffect(() => {
     if (prefersReducedMotion) setPaused(true);
@@ -35,8 +62,12 @@ export default function QuoteBlock() {
   return (
     <div className={styles.wrap} aria-live="polite" aria-atomic="true">
       <blockquote className={styles.quote}>
-        <p className={styles.text}>"{quotes[index].text}"</p>
-        <footer className={styles.author}>— {quotes[index].author}</footer>
+        <p className={styles.text}>
+          {loading ? 'Loading...' : `"${quote.text}"`}
+        </p>
+        <footer className={styles.author}>
+          {!loading && `— ${quote.author}`}
+        </footer>
       </blockquote>
       <div className={styles.controls}>
         <button
@@ -48,8 +79,9 @@ export default function QuoteBlock() {
         </button>
         <button
           className={styles.btn}
-          onClick={nextQuote}
+          onClick={fetchQuote}
           aria-label="Load next quote"
+          disabled={loading}
         >
           ↻ Next quote
         </button>
