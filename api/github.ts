@@ -1,12 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import fetch from 'node-fetch';
 
-const REPOS = [
-  'accessiblemedrx',
-  'notesapp',
-  'tasktracker',
-];
-
+const REPOS = ['accessiblemedrx', 'notesapp', 'tasktracker'];
 const USERNAME = 'jennabeachcodes';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {

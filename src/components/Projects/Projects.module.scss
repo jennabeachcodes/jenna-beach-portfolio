@@ -8,6 +8,12 @@
   transition: background 0.3s ease;
 }
 
+.sectionTitle {
+  @extend %display;
+  font-size: clamp(32px, 5vw, 56px);
+  color: var(--color-text);
+}
+
 .heading {
   @extend %display;
   font-size: clamp(40px, 6vw, 72px);
