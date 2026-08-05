@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import fetch from 'node-fetch';
 
 const REPOS = [
   'accessiblemedrx',
@@ -22,7 +23,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           }
         );
         if (!response.ok) throw new Error(`Failed to fetch ${repo}`);
-        const data = await response.json();
+        const data = await response.json() as any;
         return {
           name: data.name,
           description: data.description,
@@ -37,6 +38,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     res.setHeader('Cache-Control', 's-maxage=3600');
     res.status(200).json(results);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: 'Failed to fetch GitHub data' });
   }
 }

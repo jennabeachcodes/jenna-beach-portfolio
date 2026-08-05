@@ -1,9 +1,10 @@
 @use '../../styles/tokens' as *;
 @use '../../styles/typography' as *;
 
-.section {
+.sectionHeader {
   background: var(--color-bg);
-  padding: $space-lg $space-md;
+  padding: $space-md $space-md $space-sm $space-md;
+  border-bottom: $grid-gap solid var(--color-border);
   transition: background 0.3s ease;
 }
 
