@@ -17,7 +17,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             },
           }
         );
-        if (!response.ok) throw new Error(`Failed to fetch ${repo}`);
+
+        if (!response.ok) {
+          const errorBody = await response.text();
+          throw new Error(`GitHub API ${response.status} for ${repo}: ${errorBody}`);
+        }
+
         const data = await response.json() as any;
         return {
           name: data.name,
@@ -33,7 +38,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     res.setHeader('Cache-Control', 's-maxage=3600');
     res.status(200).json(results);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Failed to fetch GitHub data' });
+    console.error('GitHub API error:', error);
+    res.status(500).json({ 
+      error: 'Failed to fetch GitHub data',
+      detail: error instanceof Error ? error.message : String(error)
+    });
   }
 }
