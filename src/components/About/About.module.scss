@@ -4,9 +4,11 @@
 .section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: $grid-gap;
-  //margin-top: 20px;
+  gap: $grid-gap;  
   transition: background 0.3s ease;
+  padding-top: 20px;
+  padding-left: 20px; 
+  background-color: $newsprint;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -15,7 +17,7 @@
 
 .left {
   background: var(--color-surface);
-  padding: $space-lg $space-lg $space-lg $space-md;
+  padding: $space-lg $space-lg $space-lg $space-md;  
 }
 
 .heading {
