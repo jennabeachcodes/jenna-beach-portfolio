@@ -9,7 +9,8 @@ export interface Project {
   marker: Marker;
   theme: Theme;
   github?: string;
-  demo?: string
+  demo?: string;
+  repoName?: string;
 }
 
 export const projects: Project[] = [
@@ -21,7 +22,7 @@ export const projects: Project[] = [
     marker: 'circle-filled',
     theme: 'light',
     github: 'https://github.com/jennabeachcodes/AccessibleMedicationReminder',
-    // demo: 'https://...',
+    repoName: 'AccessibleMedicationReminder',
   },
   {
     id: 2,
@@ -31,7 +32,7 @@ export const projects: Project[] = [
     marker: 'square-filled',
     theme: 'light',
     github: 'https://github.com/jennabeachcodes/NotesApp',
-    // demo: 'https://...',
+    repoName: 'NotesApp',
   },
   {
     id: 3,
@@ -41,7 +42,7 @@ export const projects: Project[] = [
     marker: 'square-outline',
     theme: 'light',
     github: 'https://github.com/jennabeachcodes/TaskTracker',
-    // demo: 'https://...',
+    repoName: 'TaskTracker',
   },
   {
     id: 4,

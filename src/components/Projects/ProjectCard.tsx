@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Projects.module.scss';
-import { Project } from '../../data/projects';
-import { GitHubRepo } from '../../hooks/useGitHubData';
+import type { Project } from '../../data/projects';
+import type { GitHubRepo } from '../../hooks/useGitHubData';
 import { languageColors } from '../../data/githubLanguageColors';
 
 interface Props {

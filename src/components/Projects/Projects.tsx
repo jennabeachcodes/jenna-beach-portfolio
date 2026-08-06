@@ -14,14 +14,9 @@ export default function Projects() {
       </div>
       <div className={styles.grid}>
         {projects.map(project => {
-          const github = githubData.find(
-            r => r.name.toLowerCase() === project.title.toLowerCase()
-            .replace(/\s/g, '')
-            .replace('app', '')
-            .replace('reminder', 'reminder')
-          ) ?? githubData.find(
-            r => project.title.toLowerCase().includes(r.name.toLowerCase())
-        );
+          const github = project.repoName
+          ? githubData.find(r => r.name === project.repoName)
+          : undefined;
           return (
             <ProjectCard
               key={project.id}
