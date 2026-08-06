@@ -4,7 +4,7 @@
 .sectionHeader {
   background: var(--color-bg);
   padding: $space-md $space-md $space-sm $space-md;
-  border-bottom: $grid-gap solid var(--color-border);
+  //border-bottom: $grid-gap solid var(--color-border);
   transition: background 0.3s ease;
 }
 
@@ -94,7 +94,7 @@
 
 .description {
   @extend %body;
-  color: var(--color-text-muted);
+  color: var(--color-text);
 }
 
 .links {
@@ -126,10 +126,16 @@
   font-size: 9px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  background: rgba(245, 197, 0, 0.1);
+  background: $press-black;
   color: $bauhaus-yellow;
-  border: 1px solid rgba(245, 197, 0, 0.3);
+  border: 1px solid $bauhaus-yellow;
   padding: 2px 6px;
+
+  [data-theme="dark"] & {
+    background: rgba(245, 197, 0, 0.1);
+    color: $bauhaus-yellow;
+    border: 1px solid rgba(245, 197, 0, 0.3);
+  }
 }
 
 .githubMeta {

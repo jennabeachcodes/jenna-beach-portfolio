@@ -34,7 +34,7 @@
 
 .body {
   @extend %body;
-  color: var(--color-text-muted);
+  color: var(--color-text);
   line-height: 1.7;
   margin-bottom: $space-sm;
 
