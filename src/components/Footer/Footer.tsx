@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Footer.module.scss';
-import QuoteBlock from '../QuoteBlock/QuoteBlock';
 
 const services = [
   'Front-end Dev',
@@ -47,10 +46,7 @@ export default function Footer() {
             ))}
           </ul>
         </div>
-      </div>
-      <div className={styles.quoteRow}>
-        <QuoteBlock />
-      </div>
+      </div>   
       <div className={styles.bottom}>
         <span className={styles.copy}>Jenna Beach - Web Developer © {new Date().getFullYear()}</span>
         <span className={styles.built}>Built with React · TypeScript · Sass</span>
