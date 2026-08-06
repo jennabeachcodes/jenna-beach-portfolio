@@ -15,8 +15,13 @@ export default function Projects() {
       <div className={styles.grid}>
         {projects.map(project => {
           const github = githubData.find(
-            r => r.name.toLowerCase() === project.title.toLowerCase().replace(/\s/g, '')
-          );
+            r => r.name.toLowerCase() === project.title.toLowerCase()
+            .replace(/\s/g, '')
+            .replace('app', '')
+            .replace('reminder', 'reminder')
+          ) ?? githubData.find(
+            r => project.title.toLowerCase().includes(r.name.toLowerCase())
+        );
           return (
             <ProjectCard
               key={project.id}
