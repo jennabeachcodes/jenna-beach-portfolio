@@ -35,7 +35,6 @@ function formatUpdated(dateStr: string): string {
 export default function ProjectCard({ project, github }: Props) {
   return (
     <article className={styles.card}>
-      {github && <span className={styles.liveBadge}>Live from GitHub</span>}
       <div className={styles.cardTop}>
         {renderMarker(project.marker)}
         <span className={styles.number}>NO. {String(project.id).padStart(2, '0')}</span>
@@ -71,8 +70,14 @@ export default function ProjectCard({ project, github }: Props) {
       )}
       <div className={styles.links}>
         {project.github && (
-          <a href={project.github} target="_blank" rel="noreferrer" className={styles.linkBtn}>
-            GitHub
+            <a
+            href={project.github}
+            target="_blank"
+            rel="noreferrer"
+            className={styles.linkBtn}
+            aria-label={`View ${project.title} on GitHub`}
+          >
+            Live from GitHub ↗
           </a>
         )}
         {/* {project.demo && (

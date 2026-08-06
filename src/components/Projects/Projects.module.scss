@@ -119,25 +119,6 @@
   }
 }
 
-.liveBadge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  background: $press-black;
-  color: $bauhaus-yellow;
-  border: 1px solid $bauhaus-yellow;
-  padding: 2px 6px;
-
-  [data-theme="dark"] & {
-    background: rgba(245, 197, 0, 0.1);
-    color: $bauhaus-yellow;
-    border: 1px solid rgba(245, 197, 0, 0.3);
-  }
-}
-
 .githubMeta {
   padding-top: $space-xs;
   border-top: 1px solid var(--color-border);
